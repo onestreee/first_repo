@@ -1,0 +1,28 @@
+[
+    {
+        "Mood": "sad",
+        "Progressions": [
+            "i - VI - III - VII",
+            "i - iv - v",
+            "i - VII - VI - VII"
+        ]
+    },
+
+    {
+        "Mood": "dark",
+        "Progressions": [
+            "i - bII - i",
+            "i - v - i",
+            "i - VI - v"
+        ]
+    },
+
+    {
+        "Mood": "pop",
+        "Progressions": [
+            "I - V - vi - IV",
+            "vi - IV - I - V"
+        ]
+    }
+
+]

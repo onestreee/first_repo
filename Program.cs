@@ -75,7 +75,30 @@ async Task HandleUpdateAsync(
         {
             await bot.SendMessage(
                 chatId,
-                "Привет, я бот для генерации музыкальных идей.\nНапиши /idea",
+                "Привет, я бот для генерации музыкальных идей.\nНапиши /idea или /chords",
+                cancellationToken: ct);
+            return;
+        }
+
+        if (text.StartsWith("/chords"))
+        {
+            var parts = text.Split(' ');
+
+            if (parts.Length < 2)
+            {
+                await bot.SendMessage(
+                    chatId,
+                    "Использование: /chords sad | dark | pop",
+                    cancellationToken: ct);
+                return;
+            }
+
+            var mood = parts[1];
+            var prog = MusicIdeaBot.Services.ChordService.GetProgression(mood);
+
+            await bot.SendMessage(
+                chatId,
+                $"Прогрессия: \n{prog}",
                 cancellationToken: ct);
             return;
         }
@@ -99,8 +122,9 @@ async Task HandleUpdateAsync(
 
         await bot.SendMessage(
             chatId,
-            "Не понял команду. Попробуй /idea",
+            "Не понял команду.\nПопробуй /idea или /chords",
             cancellationToken: ct);
+
     }
     catch (Exception ex)
     {

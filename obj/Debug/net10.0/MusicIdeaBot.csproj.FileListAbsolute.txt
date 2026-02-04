@@ -25,3 +25,4 @@ D:\Programming\Learn\2026\MusicIdeaBot\bin\Debug\net10.0\DotNetEnv.dll
 D:\Programming\Learn\2026\MusicIdeaBot\bin\Debug\net10.0\Microsoft.Extensions.Configuration.dll
 D:\Programming\Learn\2026\MusicIdeaBot\bin\Debug\net10.0\Sprache.dll
 D:\Programming\Learn\2026\MusicIdeaBot\obj\Debug\net10.0\MusicIdeaBot.sourcelink.json
+D:\Programming\Learn\2026\MusicIdeaBot\bin\Debug\net10.0\Data\progressions.json
