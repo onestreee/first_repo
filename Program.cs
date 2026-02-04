@@ -5,6 +5,7 @@ using Telegram.Bot.Polling;
 using DotNetEnv;
 using MusicIdeaBot.Services;
 using System.Linq.Expressions;
+using Telegram.Bot.Types.ReplyMarkups;
 
 Env.Load();
 
@@ -38,6 +39,29 @@ async Task HandleUpdateAsync(
     CancellationToken ct
 )
 {
+    if (update.Type == Telegram.Bot.Types.Enums.UpdateType.CallbackQuery)
+    {
+        var data = update.CallbackQuery.Data;
+        var chatId = update.CallbackQuery.Message.Chat.Id;
+
+        if (data == "idea_more")
+        {
+            var idea = MusicIdeaBot.Services.MusicIdeaService.GenerateIdea();
+
+            var keyboard = new InlineKeyboardMarkup(
+                InlineKeyboardButton.WithCallbackData(
+                    "Ещё идея!",
+                    "idea_more"));
+
+            await bot.SendMessage(
+                chatId,
+                idea,
+                replyMarkup: keyboard,
+                cancellationToken: ct);
+            return;
+        }
+    }
+
     try
     {
         if (update.Type != Telegram.Bot.Types.Enums.UpdateType.Message) return;
@@ -60,9 +84,15 @@ async Task HandleUpdateAsync(
         {
             var idea = MusicIdeaBot.Services.MusicIdeaService.GenerateIdea();
 
+            var keyboard = new InlineKeyboardMarkup(
+                InlineKeyboardButton.WithCallbackData(
+                    "Ещё идея!",
+                    "idea_more"));
+
             await bot.SendMessage(
                 chatId,
                 idea,
+                replyMarkup: keyboard,
                 cancellationToken: ct);
             return;
         }
