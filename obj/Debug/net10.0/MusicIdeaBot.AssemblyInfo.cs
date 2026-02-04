@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MusicIdeaBot")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d3b5edf3a4c6b9b8c3a3715310e46edc21367d1a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e8e2776776ecf4baaac60a33a44f3074818da685")]
 [assembly: System.Reflection.AssemblyProductAttribute("MusicIdeaBot")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MusicIdeaBot")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

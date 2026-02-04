@@ -23,6 +23,11 @@ public class ChordService
             return "Нет такого настроения. Попробуй ещё раз: sad, dark, pop.";
 
         var rng = new Random();
-        return entry.Progressions[rng.Next(entry.Progressions.Length)];
+        var prog = entry.Progressions[rng.Next(entry.Progressions.Length)];
+        var idea = MusicIdeaService.GenerateIdea();
+        var key = idea.Split('\n')
+            .First(x => x.StartsWith("Key"))
+            .Split(':')[1].Trim();
+        return MusicTheoryService.TransposeMinorProgression(key, prog);
     }
 }
